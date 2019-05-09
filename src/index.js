@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {
   Animated,
-  DeviceEventEmitter,
+  NativeEventEmitter,
   Dimensions,
   KeyboardAvoidingView,
   Modal,
@@ -174,14 +174,14 @@ class ReactNativeModal extends Component {
     if (this.state.isVisible) {
       this.open();
     }
-    DeviceEventEmitter.addListener(
+    NativeEventEmitter.addListener(
       'didUpdateDimensions',
       this.handleDimensionsUpdate
     );
   }
 
   componentWillUnmount() {
-    DeviceEventEmitter.removeListener(
+    NativeEventEmitter.removeListener(
       'didUpdateDimensions',
       this.handleDimensionsUpdate
     );
